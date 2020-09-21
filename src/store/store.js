@@ -9,7 +9,8 @@ export default new Vuex.Store({
     products: [],
     filteredProducts: [],
     cart: [],
-    subtypes: []
+    subtypes: [],
+    currentSubtype: '',
   },
   mutations: {
     SET_PRODUCT: (state, products) => {
@@ -22,6 +23,7 @@ export default new Vuex.Store({
       } else {
         state.filteredProducts = state.products.filter(product => product.subtype === subtype)
       }
+      state.currentSubtype = subtype;
     },
     SET_SUBTYPES: (state) => {
       const subtypesArr = [];
@@ -33,7 +35,11 @@ export default new Vuex.Store({
       state.subtypes = subtypesArr
     },
     FILTER_PRODUCTS_BY_PRICE: (state, payload) => {
-      state.filteredProducts = state.filteredProducts.filter(product => (product.price >= +payload.minPrice && product.price <= +payload.maxPrice))
+      if (state.currentSubtype === '') {
+        state.filteredProducts = state.products.filter(product => (product.price >= +payload.minPrice && product.price <= +payload.maxPrice))
+      } else {
+        state.filteredProducts = state.products.filter(product => (product.price >= +payload.minPrice && product.price <= +payload.maxPrice && product.subtype === state.currentSubtype))
+      }
     }
   },
   actions: {
@@ -44,7 +50,6 @@ export default new Vuex.Store({
     },
     GET_PRODUCTS_BY_PRICE: ({commit}, payload) => {
       commit('FILTER_PRODUCTS_BY_PRICE', payload)
-      commit('SET_SUBTYPES')
     }
   },
   getters: {
