@@ -1,13 +1,23 @@
 <template>
   <div class="products">
     <div class="container">
-      <h1>Каталог товаров</h1>
-      <router-link to='/' class="products__link"><b-icon icon="house-fill" variant="info"/>Вернуться на главную</router-link>
+      <h1 class="products__title">Каталог товаров</h1>
+      <router-link
+        to='/'
+        class="products__link"
+      >
+        <b-icon
+          icon="house-fill"
+          variant="info"
+        />Вернуться на главную
+      </router-link>
       <b-row>
         <b-col
           cols=12
           lg=3
-        ><ProductsFilter /></b-col>
+        >
+          <ProductsFilter />
+        </b-col>
         <b-col
           cols=12
           lg=9
@@ -37,7 +47,7 @@ export default {
   name: "Products",
   components: {
     Product,
-    ProductsFilter
+    ProductsFilter,
   },
   methods: {
     ...mapActions(["GET_PRODUCTS_FROM_API"]),
@@ -69,6 +79,14 @@ export default {
 
       &:hover {
         color: black;
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .products {
+      &__link {
+        margin-bottom: 20px;
       }
     }
   }

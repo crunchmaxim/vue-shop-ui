@@ -1,6 +1,6 @@
 <template>
-  <div class="products-filter__slider">
-    <div>
+  <div class="products-filter-slider">
+    <div class="products-filter-slider__slider">
       <label for="range-1">Минимальная цена: {{ minPrice }} р.</label>
       <b-form-input
         id="range-1"
@@ -10,7 +10,7 @@
         max=100000
       ></b-form-input>
     </div>
-    <div>
+    <div class="products-filter-slider__slider">
       <label for="range-2">Максимальная цена: {{ maxPrice }} р.</label>
       <b-form-input
         id="range-2"
@@ -59,5 +59,25 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  .products-filter-slider {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 992px) {
+    .products-filter-slider {
+      &__slider {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .products-filter-slider {
+      &__slider {
+        width: 90%;
+      }
+    }
+  }
 </style>

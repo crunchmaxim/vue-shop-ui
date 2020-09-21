@@ -36,5 +36,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  @media (max-width: 992px) {
+    .products-filter__select {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .products-filter__select {
+      width: 100%;
+    }
+  }
 </style>
