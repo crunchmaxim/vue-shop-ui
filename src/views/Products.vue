@@ -23,7 +23,7 @@
           lg=9
         >
           <div class="products__wrapper">
-            <Product
+            <ProductsItem
               v-for="product in PRODUCTS"
               :key="product.id"
               :imageUrl="product.imageUrl"
@@ -39,14 +39,14 @@
 </template>
 
 <script>
-import Product from "@/components/Products/Product";
+import ProductsItem from "@/components/Products/ProductsItem";
 import ProductsFilter from "@/components/Products/ProductsFilter";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Products",
   components: {
-    Product,
+    ProductsItem,
     ProductsFilter,
   },
   methods: {
