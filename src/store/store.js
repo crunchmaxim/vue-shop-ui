@@ -40,6 +40,27 @@ export default new Vuex.Store({
       } else {
         state.filteredProducts = state.products.filter(product => (product.price >= +payload.minPrice && product.price <= +payload.maxPrice && product.subtype === state.currentSubtype))
       }
+    },
+    ADD_PRODUCT_TO_CART: (state, productId) => {
+      const productToCart = state.products.filter(product => product.id === productId)[0]
+      state.cart.push(productToCart)
+    },
+    CHANGE_CART_PRODUCT_QUANTITY: (state, payload) => {
+      let productIndex;
+        
+      state.cart.filter((product,index) => {
+        if (product.id === payload.id) productIndex = index
+      })
+
+      if (payload.type === "decrease") {
+        if (state.cart[productIndex].quantity > 1) {
+          state.cart[productIndex].quantity--
+        }
+      }
+      
+      if (payload.type === "increase") {
+        state.cart[productIndex].quantity++
+      }
     }
   },
   actions: {
@@ -58,6 +79,9 @@ export default new Vuex.Store({
     },
     SUBTYPES: (state) => {
       return state.subtypes;
+    },
+    CART_PRODUCTS: (state) => {
+      return state.cart
     }
   }
 })

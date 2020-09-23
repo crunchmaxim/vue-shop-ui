@@ -10,14 +10,23 @@
     <b-button
       href="#"
       variant="info"
+      @click="addToCart"
     >В корзину</b-button>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   name: "Product",
   props: ["article", "id", "imageUrl", "price", "quantity", "subtype", "title"],
+  methods: {
+    ...mapMutations(["ADD_PRODUCT_TO_CART"]),
+    addToCart() {
+      this.ADD_PRODUCT_TO_CART(this.id)
+      alert('Added to cart')
+    }
+  }
 };
 </script>
 

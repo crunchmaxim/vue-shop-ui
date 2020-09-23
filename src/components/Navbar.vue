@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div class="navbar-wrapper">
     <b-navbar
       toggleable="lg"
       type="dark"
       variant="info"
     >
-      <b-navbar-brand href="/"><img
-          :src="require('../assets/logo.png')"
-          class="logo"
-        /> Vue Shop</b-navbar-brand>
+      <b-navbar-brand>
+        <router-link to="/"><img
+            :src="require('../assets/logo.png')"
+            class="logo"
+          /> Vue Shop</router-link>
+      </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse
         id="nav-collapse"
@@ -32,8 +34,10 @@
               type="submit"
             >Поиск</b-button>
           </b-nav-form>
-          <b-nav-item href="#">
-            <b-icon icon="cart" />Корзина
+          <b-nav-item>
+            <router-link to="/cart">
+              <b-icon icon="cart" />Корзина
+            </router-link>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -66,5 +70,12 @@ export default {
 
   .logo {
     width: 50px;
+  }
+
+  .navbar-wrapper {
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 </style>

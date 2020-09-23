@@ -26,6 +26,7 @@
             <ProductsItem
               v-for="product in PRODUCTS"
               :key="product.id"
+              :id="product.id"
               :imageUrl="product.imageUrl"
               :title="product.title"
               :subtype="product.subtype"
