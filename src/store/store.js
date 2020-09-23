@@ -61,6 +61,9 @@ export default new Vuex.Store({
       if (payload.type === "increase") {
         state.cart[productIndex].quantity++
       }
+    },
+    DELETE_PRODUCT_FROM_CART: (state, id) => {
+      state.cart = state.cart.filter(product => product.id !== id)
     }
   },
   actions: {
