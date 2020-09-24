@@ -18,13 +18,11 @@
           <h1>Скидки и акции</h1>
         </b-carousel-slide>
       </router-link>
-
       <router-link to="adress">
         <b-carousel-slide img-src="https://firebasestorage.googleapis.com/v0/b/vue-shop-21bef.appspot.com/o/map.jpg?alt=media&token=7fae32fd-cbdd-4bc4-ac06-4917b3dfc80c">
           <h1>Адреса магазинов</h1>
         </b-carousel-slide>
       </router-link>
-
       <router-link to="delivery">
         <b-carousel-slide img-src="https://firebasestorage.googleapis.com/v0/b/vue-shop-21bef.appspot.com/o/delivery.jpg?alt=media&token=120a7537-bd88-44c7-bca9-b24a749662c6">
           <h1>Всё о доставке</h1>
@@ -49,7 +47,7 @@ export default {
     },
     onSlideEnd() {
       this.sliding = false;
-    }
+    },
   },
 };
 </script>

@@ -51,13 +51,17 @@ export default {
     ProductsFilter,
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API"]),
+    ...mapActions(["GET_PRODUCTS_FROM_API", "SEARCH_PRODUCTS_FROM_API"]),
   },
   computed: {
     ...mapGetters(["PRODUCTS"]),
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API(this.$route.params.productType);
+    if (this.$route.params.productType === "search") {
+      this.SEARCH_PRODUCTS_FROM_API();
+    } else {
+      this.GET_PRODUCTS_FROM_API(this.$route.params.productType);
+    }
   },
 };
 </script>

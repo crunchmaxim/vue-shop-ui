@@ -11,6 +11,7 @@ export default new Vuex.Store({
     cart: [],
     subtypes: [],
     currentSubtype: '',
+    searchValue: ''
   },
   mutations: {
     SET_PRODUCT: (state, products) => {
@@ -64,6 +65,9 @@ export default new Vuex.Store({
     },
     DELETE_PRODUCT_FROM_CART: (state, id) => {
       state.cart = state.cart.filter(product => product.id !== id)
+    },
+    SET_SEARCH_VALUE: (state, newSearchValue) => {
+      state.searchValue = newSearchValue
     }
   },
   actions: {
@@ -74,6 +78,11 @@ export default new Vuex.Store({
     },
     GET_PRODUCTS_BY_PRICE: ({commit}, payload) => {
       commit('FILTER_PRODUCTS_BY_PRICE', payload)
+    },
+    SEARCH_PRODUCTS_FROM_API: async ({ commit, state }) => {
+      const response = await axios.get(`https://europe-west3-vue-shop-21bef.cloudfunctions.net/api/products/search/${state.searchValue}`)
+      await commit('SET_PRODUCT', response.data)
+      await commit('SET_SUBTYPES')
     }
   },
   getters: {
@@ -85,6 +94,9 @@ export default new Vuex.Store({
     },
     CART_PRODUCTS: (state) => {
       return state.cart
+    },
+    SEARCH_VALUE: (state) => {
+      return state.searchValue
     }
   }
 })

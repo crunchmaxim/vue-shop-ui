@@ -26,13 +26,17 @@
             <b-form-input
               size="sm"
               class="mr-sm-2"
-              placeholder="Введите название товара"
+              placeholder="Например, гитара"
+              v-model="searchValue"
+              :value="searchValue"
             ></b-form-input>
-            <b-button
-              size="sm"
-              class="my-2 my-sm-0"
-              type="submit"
-            >Поиск</b-button>
+            <router-link to='/products/search'>
+              <b-button
+                size="sm"
+                class="my-2 my-sm-0"
+                @click="searchProducts"
+              >Поиск</b-button>
+            </router-link>
           </b-nav-form>
           <b-nav-item>
             <router-link to="/cart">
@@ -46,8 +50,29 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   name: "Navbar",
+  computed: {
+    ...mapGetters(["SEARCH_VALUE"]),
+    searchValue: {
+      get() {
+        return this.SEARCH_VALUE;
+      },
+      set(value) {
+        this.SET_SEARCH_VALUE(value);
+      },
+    },
+  },
+  methods: {
+    ...mapMutations(["SET_SEARCH_VALUE"]),
+    ...mapActions(["SEARCH_PRODUCTS_FROM_API"]),
+    searchProducts() {
+      if (this.$route.path === "/products/search") {
+        this.SEARCH_PRODUCTS_FROM_API()
+      }
+    }
+  },
 };
 </script>
 

@@ -44,7 +44,7 @@ export default {
     }
 
     &__title {
-        height: 50px;
+        height: 75px;
     }
 
     &__price {
