@@ -43,6 +43,10 @@ export default {
       width: 100%;
     }
 
+    &__subtype {
+      font-weight: 500;
+    }
+
     &__title {
         height: 75px;
     }

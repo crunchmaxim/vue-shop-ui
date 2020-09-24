@@ -5,7 +5,6 @@
       v-model="selected"
       :options="options"
     ></b-form-select>
-    <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
   </div>
 </template>
 
@@ -37,6 +36,10 @@ export default {
 </script>
 
 <style lang="scss">
+  .products-filter__select {
+    margin-bottom: 20px;
+  }
+
   @media (max-width: 992px) {
     .products-filter__select {
       width: 70%;

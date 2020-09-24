@@ -68,6 +68,7 @@ export default {
     &__sum {
       text-align: left;
       font-size: 28px;
+      font-weight: 500;
     }
 
     &__link {

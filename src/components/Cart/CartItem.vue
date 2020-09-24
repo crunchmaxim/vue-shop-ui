@@ -7,13 +7,16 @@
         ></b-col>
       <b-col>
         <div>
-          <div> Наименование: {{title}}</div>
-          <div>Артикул: {{article}}</div>
+          <div>
+            <div class="cartItem__title">Наименование:</div>
+            <div>{{title}}</div>
+          </div>
+          <div class="cartItem__article"><div class="cartItem__title">Артикул:</div> <div>{{article}}</div></div>
         </div>
       </b-col>
-      <b-col>Цена: <span>{{price}} р.</span> </b-col>
+      <b-col><div class="cartItem__title">Цена:</div> <div>{{price}} р.</div> </b-col>
       <b-col>
-        <div>Количество:</div>
+        <div><div class="cartItem__title">Количество:</div></div>
         <div>
           <span
             class="cartItem__quantity"
@@ -30,9 +33,13 @@
           </span>
         </div>
       </b-col>
-      <b-col>Итого: <span>{{price*quantity}} р.</span></b-col>
+      <b-col><div class="cartItem__title">Итого:</div> <div>{{price*quantity}} р.</div></b-col>
       <b-col class="cartItem__delete">
-        <b-button variant="info" class="cartItem__delete-btn" @click="deleteProduct">Удалить
+        <b-button
+          variant="info"
+          class="cartItem__delete-btn"
+          @click="deleteProduct"
+        >Удалить
           <b-icon icon="trash" />
         </b-button>
       </b-col>
@@ -51,7 +58,10 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["CHANGE_CART_PRODUCT_QUANTITY", "DELETE_PRODUCT_FROM_CART"]),
+    ...mapMutations([
+      "CHANGE_CART_PRODUCT_QUANTITY",
+      "DELETE_PRODUCT_FROM_CART",
+    ]),
     decreaseQuantity() {
       this.CHANGE_CART_PRODUCT_QUANTITY({ type: "decrease", id: this.id });
     },
@@ -59,8 +69,8 @@ export default {
       this.CHANGE_CART_PRODUCT_QUANTITY({ type: "increase", id: this.id });
     },
     deleteProduct() {
-      this.DELETE_PRODUCT_FROM_CART(this.id)
-    }
+      this.DELETE_PRODUCT_FROM_CART(this.id);
+    },
   },
 };
 </script>
@@ -71,6 +81,14 @@ export default {
 
     &__img {
       max-width: 252px;
+    }
+
+    &__title {
+      font-weight: 500;
+    }
+
+    &__article {
+      margin-top: 20px;
     }
 
     &__quantity {
