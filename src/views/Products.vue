@@ -32,6 +32,7 @@
               :subtype="product.subtype"
               :price="product.price"
               :article="product.article"
+              :description="product.description"
             />
           </div>
         </b-col>

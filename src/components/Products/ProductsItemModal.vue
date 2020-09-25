@@ -27,7 +27,7 @@
                 <span>Артикул:</span> {{article}}
               </div>
               <div class="products-item-modal__info">
-                <span>Описание:</span> акустическая гитара, цвет натуральный, материал корпуса - липа, топ - ель, форма корпуса - дредноут, гриф - нато, накладка грифа - орех, количество ладов: 20, мензура 25.3", фурнитура хром, в комплекте чехол
+                <span>Описание:</span> {{description}}
               </div>
               <div class="products-item-modal__info">
                 <span>Цена:</span> {{price}} р.
@@ -58,6 +58,7 @@ export default {
     "subtype",
     "title",
     "modal",
+    "description"
   ],
   computed: {
     modalShow: {
