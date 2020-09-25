@@ -11,12 +11,20 @@
             <div class="cartItem__title">Наименование:</div>
             <div>{{title}}</div>
           </div>
-          <div class="cartItem__article"><div class="cartItem__title">Артикул:</div> <div>{{article}}</div></div>
+          <div class="cartItem__article">
+            <div class="cartItem__title">Артикул:</div>
+            <div>{{article}}</div>
+          </div>
         </div>
       </b-col>
-      <b-col><div class="cartItem__title">Цена:</div> <div>{{price}} р.</div> </b-col>
       <b-col>
-        <div><div class="cartItem__title">Количество:</div></div>
+        <div class="cartItem__title">Цена:</div>
+        <div>{{price}} р.</div>
+      </b-col>
+      <b-col>
+        <div>
+          <div class="cartItem__title">Количество:</div>
+        </div>
         <div>
           <span
             class="cartItem__quantity"
@@ -33,7 +41,10 @@
           </span>
         </div>
       </b-col>
-      <b-col><div class="cartItem__title">Итого:</div> <div>{{price*quantity}} р.</div></b-col>
+      <b-col>
+        <div class="cartItem__title">Итого:</div>
+        <div>{{price*quantity}} р.</div>
+      </b-col>
       <b-col class="cartItem__delete">
         <b-button
           variant="info"
