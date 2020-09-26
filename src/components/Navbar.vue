@@ -41,6 +41,7 @@
           <b-nav-item>
             <router-link to="/cart">
               <b-icon icon="cart" />Корзина
+              <b-badge v-if="CART_PRODUCTS_QUANTITY > 0" variant="danger">{{CART_PRODUCTS_QUANTITY}}</b-badge>
             </router-link>
           </b-nav-item>
         </b-navbar-nav>
@@ -54,7 +55,7 @@ import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   name: "Navbar",
   computed: {
-    ...mapGetters(["SEARCH_VALUE"]),
+    ...mapGetters(["SEARCH_VALUE", "CART_PRODUCTS_QUANTITY"]),
     searchValue: {
       get() {
         return this.SEARCH_VALUE;

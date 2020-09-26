@@ -76,6 +76,11 @@ export default new Vuex.Store({
       await commit('SET_PRODUCT', response.data)
       await commit('SET_SUBTYPES')
     },
+    GET_DISCOUNT_PRODUCTS_FROM_API: async ({ commit }) => {
+      const response = await axios.get(`https://europe-west3-vue-shop-21bef.cloudfunctions.net/api/discount`)
+      await commit('SET_PRODUCT', response.data)
+      await commit('SET_SUBTYPES')
+    },
     GET_PRODUCTS_BY_PRICE: ({commit}, payload) => {
       commit('FILTER_PRODUCTS_BY_PRICE', payload)
     },
@@ -94,6 +99,9 @@ export default new Vuex.Store({
     },
     CART_PRODUCTS: (state) => {
       return state.cart
+    },
+    CART_PRODUCTS_QUANTITY: (state) => {
+      return state.cart.length
     },
     SEARCH_VALUE: (state) => {
       return state.searchValue

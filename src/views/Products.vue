@@ -53,7 +53,7 @@ export default {
     ProductsFilter,
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API", "SEARCH_PRODUCTS_FROM_API"]),
+    ...mapActions(["GET_PRODUCTS_FROM_API", "GET_DISCOUNT_PRODUCTS_FROM_API", "SEARCH_PRODUCTS_FROM_API"]),
   },
   computed: {
     ...mapGetters(["PRODUCTS"]),
@@ -61,6 +61,8 @@ export default {
   mounted() {
     if (this.$route.params.productType === "search") {
       this.SEARCH_PRODUCTS_FROM_API();
+    } else if (this.$route.params.productType === "discount") {
+      this.GET_DISCOUNT_PRODUCTS_FROM_API();
     } else {
       this.GET_PRODUCTS_FROM_API(this.$route.params.productType);
     }

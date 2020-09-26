@@ -13,7 +13,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <router-link to='discount'>
+      <router-link to='/products/discount'>
         <b-carousel-slide img-src="https://firebasestorage.googleapis.com/v0/b/vue-shop-21bef.appspot.com/o/dicsount.jpg?alt=media&token=e4b554c9-7a34-46c7-ada5-eea5bb06d60f">
           <h1>Скидки и акции</h1>
         </b-carousel-slide>
