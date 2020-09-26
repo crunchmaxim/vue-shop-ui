@@ -1,24 +1,13 @@
-# vue-shop-frontend
+Интерфейс интернет магазина на Vue JS.
 
-## Project setup
-```
-npm install
-```
+Онлайн версия доступна по следующему адресу: https://vue-shop-21bef.firebaseapp.com/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Backend API реализован на Firebase с использованием Express JS.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Используемые технологии:
+- Vuex (https://vuex.vuejs.org/ru/) - хранение и управление состоянием приложения.
+- Vue Router (https://router.vuejs.org/ru/) - управление маршрутизацией.
+- Axios (https://www.npmjs.com/package/axios) - управление запросами к API.
+- Bootstrap-vue (https://bootstrap-vue.org/) - плагин для Vue JS. Набор стилизованных компонентов.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Сайт оптимизирован под любые устройства, в т.ч. мобильные телефоны и планшеты.
